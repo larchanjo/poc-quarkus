@@ -1,4 +1,4 @@
-# quarkus project
+# Quarkus project
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
@@ -41,6 +41,24 @@ You can then execute your binary: `./target/quarkus-1.0-SNAPSHOT-runner`
 
 If you want to learn more about building native executables, please consult https://quarkus.io/guides/building-native-image-guide .
 
+# Endpoints
+
+## Health checks
+
+Accumulating all health check procedures in the application
+
+http://localhost:8080/health
+
+The application is up and running
+
+http://localhost:8080/health/live
+
+The application is ready to serve requests
+
+http://localhost:8080/health/ready
+
 # References
 
 [Quarkus Opentracing](https://quarkus.io/guides/opentracing#quarkus-jaeger_quarkus.jaeger.propagation)
+
+[Quarkus Health Checks](https://quarkus.io/guides/microprofile-health)

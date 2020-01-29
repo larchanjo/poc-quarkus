@@ -1,4 +1,4 @@
-package com.example.quarkus.infra;
+package com.example.quarkus.infra.resources;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
