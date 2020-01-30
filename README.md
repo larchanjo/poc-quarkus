@@ -47,18 +47,41 @@ If you want to learn more about building native executables, please consult http
 
 Accumulating all health check procedures in the application
 
-http://localhost:8080/health
+`http://localhost:8080/health`
 
 The application is up and running
 
-http://localhost:8080/health/live
+`http://localhost:8080/health/live`
 
 The application is ready to serve requests
 
-http://localhost:8080/health/ready
+`http://localhost:8080/health/ready`
+
+## Metrics
+
+`http://localhost:8080/metrics`
+
+## Acquirers
+
+Create
+
+```
+POST http://localhost:8080/api/v1/acquirers
+
+{
+"card" : "1234567890",
+"value" : 55.44
+}
+```
+
+Get All
+
+`GET http://localhost:8080/api/v1/acquirers`
 
 # References
 
 [Quarkus Opentracing](https://quarkus.io/guides/opentracing#quarkus-jaeger_quarkus.jaeger.propagation)
 
 [Quarkus Health Checks](https://quarkus.io/guides/microprofile-health)
+
+[Quarkus Metrics](https://quarkus.io/guides/microprofile-metrics)

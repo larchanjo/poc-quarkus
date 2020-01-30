@@ -16,6 +16,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
+import org.eclipse.microprofile.metrics.MetricUnits;
+import org.eclipse.microprofile.metrics.annotation.Counted;
+import org.eclipse.microprofile.metrics.annotation.Timed;
 
 @Path("/api/v1/acquirers")
 @Produces(MediaType.APPLICATION_JSON)
@@ -29,6 +32,8 @@ public class AcquirerResource {
   }
 
   @POST
+  @Counted(name = "create-acquirer-counter", description = "How many times this API have been called")
+  @Timed(name = "create-acquirer-timer", description = "How long this API takes to perform the request", unit = MetricUnits.MILLISECONDS)
   public Response post(CreateAcquirerRequest request) {
     Acquirer acquirer = service.create(request.getCard(), request.getValue());
     CreateAcquirerResponse createAcquirerResponse = CreateAcquirerResponse.builder()
@@ -41,6 +46,8 @@ public class AcquirerResource {
   }
 
   @GET
+  @Counted(name = "get-acquirers-counter", description = "How many times this API have been called")
+  @Timed(name = "get-acquirers-timer", description = "How long this API takes to perform the request", unit = MetricUnits.MILLISECONDS)
   public Response getAll() {
     Collection<Acquirer> acquirers = service.get();
 
